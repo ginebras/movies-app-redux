@@ -27,7 +27,7 @@ export default function MovieListing() {
     );
 
   renderShows =
-    movies.Response === 'True' ? (
+    shows.Response === 'True' ? (
       shows.Search.map((movie, index) => (
         <MovieCard key={index} movie={movie} />
       ))

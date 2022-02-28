@@ -78,7 +78,6 @@ const movieSlice = createSlice({
       console.log('Rejected');
     },
     [fetchShowsApi.fulfilled]: (state, { payload }) => {
-      console.log(state);
       console.log('Fetch sucessfull');
       return { ...state, shows: payload };
     },
