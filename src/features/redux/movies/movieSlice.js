@@ -3,9 +3,8 @@ import apiAxios from '../../../common/apiAxios';
 
 export const fetchMoviesApi = createAsyncThunk(
   'movies/fetchMoviesApi',
-  async () => {
+  async (movieName) => {
     const apiKey = 'c2b83a20';
-    const movieName = 'Harry Potter';
     try {
       const response = await apiAxios.get(
         `?apiKey=${apiKey}&s=${movieName}&type=movie`
@@ -20,9 +19,8 @@ export const fetchMoviesApi = createAsyncThunk(
 
 export const fetchShowsApi = createAsyncThunk(
   'shows/fetchShowsApi',
-  async () => {
+  async (movieName) => {
     const apiKey = 'c2b83a20';
-    const movieName = 'Friends';
     try {
       const response = await apiAxios.get(
         `?apiKey=${apiKey}&s=${movieName}&type=series`
