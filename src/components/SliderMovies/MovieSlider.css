@@ -1,0 +1,26 @@
+.container-slider-movies {
+  width: 100%;
+  position: relative;
+}
+
+.icon-container {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+  cursor: pointer;
+  top: 50%;
+  z-index: 4;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.icon-container:hover {
+  transform: scale(1.6);
+}
+
+.slider-container {
+  padding: 20px;
+  display: flex;
+  transition: all 0.3s;
+}

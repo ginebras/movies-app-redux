@@ -5,7 +5,7 @@ import {
   getAllShows,
 } from '../../features/redux/movies/movieSlice';
 
-import MovieCard from '../MovieCard/MovieCard';
+import MovieSlider from '../SliderMovies/MovieSlider';
 
 import './MovieListing.scss';
 
@@ -13,39 +13,21 @@ export default function MovieListing() {
   const movies = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
   let renderMovies,
-    renderShows = '';
+    renderShows = [];
 
-  renderMovies =
-    movies.Response === 'True' ? (
-      movies.Search.map((movie, index) => (
-        <MovieCard key={index} movie={movie} />
-      ))
-    ) : (
-      <div className="movies-error">
-        <h2>{movies.Error}</h2>
-      </div>
-    );
+  renderMovies = movies.Response === 'True' ? movies.Search : [];
 
-  renderShows =
-    shows.Response === 'True' ? (
-      shows.Search.map((movie, index) => (
-        <MovieCard key={index} movie={movie} />
-      ))
-    ) : (
-      <div className="movies-error">
-        <h2>{movies.Error}</h2>
-      </div>
-    );
+  renderShows = shows.Response === 'True' ? shows.Search : [];
 
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
-        <div className="movie-container">{renderMovies}</div>
+        <MovieSlider shows={renderMovies} />
       </div>
       <div className="shows-list">
         <h2>Shows</h2>
-        <div className="movie-container">{renderShows}</div>
+        <MovieSlider shows={renderShows} />
       </div>
     </div>
   );
